@@ -36,6 +36,12 @@ namespace WpfApp6 {
             if (ball.X > 800) {
                 //Punkty Klawiatura
             }
+            if (ball.Y >= mousePlayer.Y && ball.Y <= mousePlayer.Y + mousePlayer.Height && ball.X >= mousePlayer.X - ball.Width && ball.X <= mousePlayer.X + mousePlayer.Width) {
+                ball.DirectionX *= -1;
+            }
+            if (ball.Y >= keyboardPlayer.Y && ball.Y <= keyboardPlayer.Y + keyboardPlayer.Height && ball.X <= keyboardPlayer.X + ball.Width && ball.X >= keyboardPlayer.X) {
+                ball.DirectionX *= -1;
+            }
             ball.Move();
         }
 
