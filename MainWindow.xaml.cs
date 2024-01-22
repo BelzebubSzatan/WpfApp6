@@ -30,11 +30,15 @@ namespace WpfApp6 {
         }
 
         private void Timer_Tick(object? sender, EventArgs e) {
-            if (ball.X < 0) {
-                //Punkty Myszka
+            if (ball.X <= 0) {
+                mousePlayer.Points += 1;
+                UpdateScores();
+                ball.Reset();
             }
-            if (ball.X > 800) {
-                //Punkty Klawiatura
+            if (ball.X >= MainCanvas.Width) {
+                keyboardPlayer.Points += 1;
+                UpdateScores();
+                ball.Reset();
             }
             if (ball.Y >= mousePlayer.Y && ball.Y <= mousePlayer.Y + mousePlayer.Height && ball.X >= mousePlayer.X - ball.Width && ball.X <= mousePlayer.X + mousePlayer.Width) {
                 ball.DirectionX *= -1;
@@ -44,7 +48,10 @@ namespace WpfApp6 {
             }
             ball.Move();
         }
-
+        void UpdateScores() {
+            MousePlayer.Content = mousePlayer.Points.ToString();
+            KeyboardPlayer.Content = keyboardPlayer.Points.ToString();
+        }
         private void Window_MouseMove(object sender, MouseEventArgs e) {
             if(Mouse.GetPosition(this).Y + mousePlayer.Height >= MainCanvas.Height)
                 return;
