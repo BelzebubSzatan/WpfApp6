@@ -27,6 +27,12 @@ namespace WpfApp6 {
         }
 
         private void Timer_Tick(object? sender, EventArgs e) {
+            if (ball.X < 0) {
+                //Punkty Myszka
+            }
+            if (ball.X > 800) {
+                //Punkty Klawiatura
+            }
             ball.Move();
         }
 
