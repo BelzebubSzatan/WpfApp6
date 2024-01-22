@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp6"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450"
+        Width="800"
+        Background="Black"
+        AllowsTransparency="True"
+        MouseMove="Window_MouseMove"
+        KeyDown="Window_KeyDown">
     <Grid>
-
+        <Canvas Width="800"
+                Height="450"
+                x:Name="MainCanvas">
+            <Label x:Name="KeyboardPlayer"
+                   Content="0"
+                   Foreground="White"
+                   FontSize="20"
+                   Canvas.Left="200"
+                   Canvas.Top="50" />
+            <Label x:Name="MousePlayer"
+                   Content="0"
+                   Foreground="White"
+                   FontSize="20"
+                   Canvas.Right="200"
+                   Canvas.Top="50" />
+        </Canvas>
     </Grid>
 </Window>
