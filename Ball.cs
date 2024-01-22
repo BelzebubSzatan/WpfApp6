@@ -51,8 +51,8 @@ namespace WpfApp6 {
             X = Canvas.Width / 2 - Width / 2;
             Y = Canvas.Height / 2 - Height / 2;
             Random dir = new();
-            DirectionX = dir.Next(1,2)==1?1:-1;
-            DirectionY = dir.Next(1, 2) == 1 ? 1 : -1;
+            DirectionX = dir.Next(1, 20) % 2 == 0 ? 1 : -1;
+            DirectionY = dir.Next(1, 20) % 2 == 0 ? 1 : -1;
             Random r = new();
             Angle = r.Next(30, 60) * Math.PI / 180;
             Speed = 3;
