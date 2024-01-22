@@ -72,6 +72,12 @@ namespace WpfApp6 {
                     keyboardPlayer.Y -= 10;
                     keyboardPlayer.Draw();
                     break;
+                case Key.R:
+                    mousePlayer.Reset();
+                    keyboardPlayer.Reset();
+                    ball.Reset();
+                    UpdateScores();
+                    break;
                 case Key.S:
                     if (keyboardPlayer.Y + keyboardPlayer.Height >= MainCanvas.Height)
                         return;
