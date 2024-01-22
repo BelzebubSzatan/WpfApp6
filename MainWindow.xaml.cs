@@ -16,8 +16,10 @@ namespace WpfApp6 {
     /// </summary>
     public partial class MainWindow : Window {
         DispatcherTimer timer;
+        Ball ball;
         public MainWindow() {
             InitializeComponent();
+            ball = new(10,10,MainCanvas);
             timer = new DispatcherTimer();
             timer.Interval = TimeSpan.FromMilliseconds(16);
             timer.Tick += Timer_Tick;
@@ -25,7 +27,7 @@ namespace WpfApp6 {
         }
 
         private void Timer_Tick(object? sender, EventArgs e) {
-            throw new NotImplementedException();
+            ball.Move();
         }
 
         private void Window_MouseMove(object sender, MouseEventArgs e) {

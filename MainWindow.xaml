@@ -11,7 +11,9 @@
         Background="Black"
         AllowsTransparency="True"
         MouseMove="Window_MouseMove"
-        KeyDown="Window_KeyDown">
+        KeyDown="Window_KeyDown"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Canvas Width="800"
                 Height="450"
