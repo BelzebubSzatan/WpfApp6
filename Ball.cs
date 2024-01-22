@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows.Media;
+using System.Windows.Media.Media3D;
 using System.Windows.Shapes;
 
 namespace WpfApp6 {
@@ -29,20 +30,31 @@ namespace WpfApp6 {
                 Height = height,
                 Fill = new SolidColorBrush(Colors.White),
             };
+            Reset();
+            Canvas.Children.Add(Shape);
+        }
+
+        public void Draw() {
+            Canvas.SetLeft(Shape, X);
+            Canvas.SetTop(Shape, Y);
+        }
+
+        public void Move() {
+            X += Math.Cos(Angle) * Speed * DirectionX;
+            Y += Math.Sin(Angle) * Speed * DirectionY;
+            if (Y + Width >= Canvas.Height || Y - Height <= 0)
+                DirectionY *= -1;
+            Draw();
+        }
+
+        public void Reset() {
+            X = Canvas.Width / 2 - Width / 2;
+            Y = Canvas.Height / 2 - Height / 2;
             DirectionX = 1;
             DirectionY = 1;
             Random r = new();
             Angle = r.Next(30, 60) * Math.PI / 180;
             Speed = 3;
-            Canvas.Children.Add(Shape);
-        }
-
-        public void Draw() {
-            throw new NotImplementedException();
-        }
-
-        public void Reset() {
-            throw new NotImplementedException();
         }
     }
 }
