@@ -50,8 +50,9 @@ namespace WpfApp6 {
         public void Reset() {
             X = Canvas.Width / 2 - Width / 2;
             Y = Canvas.Height / 2 - Height / 2;
-            DirectionX = 1;
-            DirectionY = 1;
+            Random dir = new();
+            DirectionX = dir.Next(1,2)==1?1:-1;
+            DirectionY = dir.Next(1, 2) == 1 ? 1 : -1;
             Random r = new();
             Angle = r.Next(30, 60) * Math.PI / 180;
             Speed = 3;
