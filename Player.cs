@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Media;
 using Rectangle = System.Windows.Shapes.Rectangle;
 
 namespace WpfApp6
@@ -18,6 +19,24 @@ namespace WpfApp6
         public Rectangle Shape { get; set; }
         public bool MousePlayer { get; set; }
         public int Points { get; set; }
+        public Player(Canvas source, int width, int height, SolidColorBrush color, bool isPlayer=true)
+        {
+            Width = width;
+            Height = height;
+            MousePlayer = isPlayer;
+            Canvas = source;
+            X = isPlayer ? 50 : Canvas.Width - 100 - width;
+            Y = Canvas.Height / 2 - height / 2;
+            Shape = new()
+            {
+                Width = width,
+                Height = height,
+                Fill = color,
+            };
+            Points = 0;
+            Canvas.Children.Add(Shape);
+            Draw();
+        }
         public void Draw()
         {
 
