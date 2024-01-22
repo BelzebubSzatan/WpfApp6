@@ -39,7 +39,8 @@ namespace WpfApp6
         }
         public void Draw()
         {
-
+            Canvas.SetLeft(Shape, X);
+            Canvas.SetTop(Shape, Y);
         }
         public void Reset()
         {
